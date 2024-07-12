@@ -1,0 +1,1 @@
+Pcoords are RMSD, mindist
