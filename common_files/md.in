@@ -2,7 +2,7 @@
 &cntrl
  irest   = 1,
  ntx    = 5,
- ig    = RAND,
+ ig    = -1,
  dt    = 0.004,
  nstlim  = 25000,
  nscm   = 250,

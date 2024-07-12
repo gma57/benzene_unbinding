@@ -16,5 +16,5 @@ echo ${BSTATE_ARGS}
 w_init \
   $BSTATE_ARGS \
   $TSTATE_ARGS \
-  --segs-per-state 5 \
+  --segs-per-state 8 \
   --work-manager=threads "$@"
