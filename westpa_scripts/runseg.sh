@@ -9,16 +9,17 @@ cd $WEST_SIM_ROOT
 mkdir -pv $WEST_CURRENT_SEG_DATA_REF
 cd $WEST_CURRENT_SEG_DATA_REF
 
-ln -sv $WEST_SIM_ROOT/common_files/T4_Benz_hmass.prmtop .
+sed "s/RAND/$WEST_RAND16/g" $WEST_SIM_ROOT/common_files/md.in > md.in
+#ln -sv $WEST_SIM_ROOT/common_files/T4_Benz_hmass.prmtop .
 ln -sv $WEST_SIM_ROOT/common_files/reference.pdb .
 
-if [ "$WEST_CURRENT_SEG_INITPOINT_TYPE" = "SEG_INITPOINT_CONTINUES" ]; then
-  sed "s/RAND/$WEST_RAND16/g" $WEST_SIM_ROOT/common_files/md.in > md.in
-  ln -sv $WEST_PARENT_DATA_REF/seg.ncrst ./parent.ncrst
-elif [ "$WEST_CURRENT_SEG_INITPOINT_TYPE" = "SEG_INITPOINT_NEWTRAJ" ]; then
-  sed "s/RAND/$WEST_RAND16/g" $WEST_SIM_ROOT/common_files/md.in > md.in
-  ln -sv $WEST_PARENT_DATA_REF/bstate.ncrst ./parent.ncrst
-fi
+#if [ "$WEST_CURRENT_SEG_INITPOINT_TYPE" = "SEG_INITPOINT_CONTINUES" ]; then
+#  sed "s/RAND/$WEST_RAND16/g" $WEST_SIM_ROOT/common_files/md.in > md.in
+#  ln -sv $WEST_PARENT_DATA_REF/seg.ncrst ./parent.ncrst
+#elif [ "$WEST_CURRENT_SEG_INITPOINT_TYPE" = "SEG_INITPOINT_NEWTRAJ" ]; then
+#  sed "s/RAND/$WEST_RAND16/g" $WEST_SIM_ROOT/common_files/md.in > md.in
+#  ln -sv $WEST_PARENT_DATA_REF/bstate.ncrst ./parent.ncrst
+#fi
 
 export CUDA_DEVICES=(`echo $CUDA_VISIBLE_DEVICES_ALLOCATED | tr , ' '`)
 export CUDA_VISIBLE_DEVICES=${CUDA_DEVICES[$WM_PROCESS_INDEX]}
