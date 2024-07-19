@@ -7,7 +7,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --cluster=invest
 #SBATCH --partition=lchong
-#SBATCH --time=23:59:59
+#SBATCH --time=47:59:59
 #SBATCH --mail-user=gma57@pitt.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 ##SBATCH --mem=10G
