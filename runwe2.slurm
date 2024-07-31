@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=new_unb
+#SBATCH --job-name=rmsd_corrected
 #SBATCH --output=job.out
 #SBATCH --error=job.err
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=8
 #SBATCH --gres=gpu:4
-#SBATCH --cluster=invest
-#SBATCH --partition=lchong
+#SBATCH --cluster=gpu
+#SBATCH --partition=a100_multi
 #SBATCH --time=47:59:59
 #SBATCH --mail-user=gma57@pitt.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
